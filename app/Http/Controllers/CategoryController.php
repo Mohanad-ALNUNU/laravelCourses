@@ -29,8 +29,10 @@ class CategoryController extends Controller
         return redirect()->route('categories.index')->with('success', 'Category created successfully');
     }
 
-    public function edit(Category $category)
+    public function edit(string $id)
     {
+        $decryptedId = decrypt($id);
+        $category = Category::find($decryptedId);
         return view('categories.edit', compact('category'));
     }
 

@@ -19,6 +19,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>created at</th>
+                    <th>updated at</th>
                     <th>Description</th>
                     <th>Actions</th>
                 </tr>
@@ -28,9 +30,11 @@
                 <tr>
                     <td>{{ $category->id }}</td>
                     <td>{{ $category->name }}</td>
+                    <td>{{ $category->created_at }}</td>
+                    <td>{{ $category->updated_at }}</td>
                     <td>{{ $category->description }}</td>
                     <td>
-                        <a href="{{ route('categories.edit', $category) }}" class="btn btn-sm btn-primary">Edit</a>
+                        <a href="{{ route('categories.edit', encrypt($category->id)) }}" class="btn btn-sm btn-primary">Edit</a>
                         <form action="{{ route('categories.destroy', $category) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')

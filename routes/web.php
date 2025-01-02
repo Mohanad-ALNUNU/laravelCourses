@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::resource('categories', CategoryController::class);
+Route::get('categories/update/{encrypt(categories.id)}', [CategoryController::class, 'edit'])->name('categories.edit');
